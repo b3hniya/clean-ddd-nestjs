@@ -10,4 +10,8 @@ export class UserInMemoryRepository implements UserRepositoryInterface {
     this.users.set(user.getId().toString(), user);
     console.log(`User saved: ${user.getId().toString()}`);
   }
+
+  async findById(userId: string): Promise<User | null> {
+    return this.users.get(userId) || null;
+  }
 }

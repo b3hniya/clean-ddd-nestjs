@@ -4,6 +4,7 @@ import { CreateUserHandler } from './application/commands/create-user.handler';
 import { UserInMemoryRepository } from './infrastructure/persistance/repositories/user.in-memory.repository';
 import { UserController } from './presentation/controllers/user.controller';
 import { USER_REPOSITORY } from './infrastructure/persistance/repositories/user.repository.interface';
+import { GetUserByIdHandler } from './application/queries/get-user-by-id.handler';
 
 @Module({
   imports: [CqrsModule], // CqrsModule provides EventBus and CommandBus
@@ -11,6 +12,7 @@ import { USER_REPOSITORY } from './infrastructure/persistance/repositories/user.
   providers: [
     // Command Handlers
     CreateUserHandler,
+    GetUserByIdHandler,
 
     // Repository
     {
