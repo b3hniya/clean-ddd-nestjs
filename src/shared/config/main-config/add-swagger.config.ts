@@ -7,7 +7,7 @@ export class SwaggerConfig {
       .setTitle('Clean DDD NestJS API')
       .setDescription('API documentation for the Clean DDD NestJS project')
       .setVersion('1.0')
-      .addServer('/v1', 'Version 1') // Add versioned endpoint
+      .addServer('/', 'Version 1') // Add versioned endpoint
       .addBearerAuth() // Add JWT Bearer auth to Swagger
       .build();
 
