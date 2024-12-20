@@ -1,5 +1,5 @@
 ﻿import { INestApplication } from '@nestjs/common';
-import { WinstonLoggerService } from '../../logger/winston-logger.service';
+import { WinstonLoggerService } from '../app-module-config/logger/winston-logger.service';
 
 export class LoggerConfig {
   public static AddTo(app: INestApplication<any>) {

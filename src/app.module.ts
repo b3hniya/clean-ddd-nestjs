@@ -1,13 +1,14 @@
 import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { UserModule } from './modules/user/user.module';
 import { SurveyModule } from './modules/survey/survey.module';
-import { ConfigModule } from './shared/config/config.module';
-import { WinstonLoggerService } from './shared/logger/winston-logger.service';
+import { EnvConfigModule } from './shared/config/app-module-config/env-config/env-config.module';
+import { WinstonLoggerService } from './shared/config/app-module-config/logger/winston-logger.service';
 
-import { HttpLoggerMiddleware } from './shared/logger/http-logger.middleware';
+import { HttpLoggerMiddleware } from './shared/config/app-module-config/logger/http-logger.middleware';
+import { PrismaModule } from './shared/config/app-module-config/prisma/prisma.module';
 
 @Module({
-  imports: [ConfigModule, SurveyModule, UserModule],
+  imports: [EnvConfigModule, SurveyModule, UserModule, PrismaModule],
   providers: [WinstonLoggerService],
   exports: [WinstonLoggerService],
 })

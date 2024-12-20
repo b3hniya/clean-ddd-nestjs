@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule as NestConfigModule } from '@nestjs/config';
-import { envValidationSchema } from './app-module-config/env.validation';
+import { envValidationSchema } from './env.validation';
 
 @Module({
   imports: [
@@ -11,4 +11,4 @@ import { envValidationSchema } from './app-module-config/env.validation';
     }),
   ],
 })
-export class ConfigModule {}
+export class EnvConfigModule {}
