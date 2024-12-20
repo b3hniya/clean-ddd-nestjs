@@ -7,6 +7,7 @@ import { WinstonLoggerService } from './shared/config/app-module-config/logger/w
 import { HttpLoggerMiddleware } from './shared/config/app-module-config/logger/http-logger.middleware';
 import { PrismaModule } from './shared/config/app-module-config/prisma/prisma.module';
 import { SentryModule } from '@sentry/nestjs/setup';
+import { CreateUserService } from './create-user/create-user.service';
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { SentryModule } from '@sentry/nestjs/setup';
     PrismaModule,
     SentryModule.forRoot(),
   ],
-  providers: [WinstonLoggerService],
+  providers: [WinstonLoggerService, CreateUserService],
   exports: [WinstonLoggerService],
 })
 export class AppModule {

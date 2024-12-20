@@ -1,12 +1,13 @@
-// src/modules/user/domain/value-objects/email.vo.ts
+import { BadRequestException } from '@nestjs/common';
+
 export class Email {
   private readonly value: string;
 
   constructor(email: string) {
     if (!this.isValidEmail(email)) {
-      throw new Error('Invalid email format.');
+      throw new BadRequestException('Invalid email address');
     }
-    this.value = email;
+    this.value = email.toLowerCase();
   }
 
   private isValidEmail(email: string): boolean {
@@ -14,11 +15,11 @@ export class Email {
     return emailRegex.test(email);
   }
 
-  public toString(): string {
+  public getValue(): string {
     return this.value;
   }
 
   public equals(other: Email): boolean {
-    return this.value === other.toString();
+    return this.value === other.getValue();
   }
 }
