@@ -7,7 +7,10 @@ import { GetUserByIdQuery } from '../../application/queries/get-user-by-id.query
 
 @Controller('users')
 export class UserController {
-  constructor(private readonly commandBus: CommandBus, private readonly queryBus: QueryBus) {}
+  constructor(
+    private readonly commandBus: CommandBus,
+    private readonly queryBus: QueryBus,
+  ) {}
 
   @Get()
   async getUsers() {
