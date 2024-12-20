@@ -4,6 +4,7 @@ import { SwaggerConfig } from './shared/config/main-config/add-swagger.config';
 import { ApiVersioning } from './shared/config/main-config/api-versioning.config';
 import start from './start';
 import { LoggerConfig } from './shared/config/main-config/add-logger.config';
+import './instrument';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

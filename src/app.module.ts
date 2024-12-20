@@ -6,9 +6,16 @@ import { WinstonLoggerService } from './shared/config/app-module-config/logger/w
 
 import { HttpLoggerMiddleware } from './shared/config/app-module-config/logger/http-logger.middleware';
 import { PrismaModule } from './shared/config/app-module-config/prisma/prisma.module';
+import { SentryModule } from '@sentry/nestjs/setup';
 
 @Module({
-  imports: [EnvConfigModule, SurveyModule, UserModule, PrismaModule],
+  imports: [
+    EnvConfigModule,
+    SurveyModule,
+    UserModule,
+    PrismaModule,
+    SentryModule.forRoot(),
+  ],
   providers: [WinstonLoggerService],
   exports: [WinstonLoggerService],
 })
